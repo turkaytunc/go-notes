@@ -31,8 +31,17 @@ fmt.Println(currentTime.Year(), currentTime.Month(), currentTime.Day())
 ### Replace chars
 
 ```go
-brokenStr := "Hell# W#rld!"
+oldStr := "Hell# W#rld!"
 replacer := strings.NewReplacer("#", "o")
-fixedString := replacer.Replace(brokenStr)
-fmt.Println(fixedString)
+newStr := replacer.Replace(oldStr)
+fmt.Println(newStr)
+```
+
+### Get input from terminal
+
+```go
+fmt.Println("Enter your input: ")
+reader := bufio.NewReader(os.Stdin)
+input, _ := reader.ReadString('\n')
+fmt.Println("your input is: " + input)
 ```
