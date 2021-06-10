@@ -19,3 +19,11 @@ var second = "World"
 first, second = second, first
 fmt.Println(first + " " + second)
 ```
+
+### time package
+
+```go
+var currentTime = time.Now()
+
+fmt.Println(currentTime.Year(), currentTime.Month(), currentTime.Day())
+```
