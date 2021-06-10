@@ -42,6 +42,11 @@ fmt.Println(newStr)
 ```go
 fmt.Println("Enter your input: ")
 reader := bufio.NewReader(os.Stdin)
-input, _ := reader.ReadString('\n')
+input, err := reader.ReadString('\n')
+
+if err != nil {
+  log.Fatal(err)
+}
+
 fmt.Println("your input is: " + input)
 ```
