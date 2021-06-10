@@ -27,3 +27,12 @@ var currentTime = time.Now()
 
 fmt.Println(currentTime.Year(), currentTime.Month(), currentTime.Day())
 ```
+
+### Replace chars
+
+```go
+brokenStr := "Hell# W#rld!"
+replacer := strings.NewReplacer("#", "o")
+fixedString := replacer.Replace(brokenStr)
+fmt.Println(fixedString)
+```

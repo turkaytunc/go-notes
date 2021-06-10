@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"strings"
 )
 
 func main() {
 
-	var currentTime = time.Now()
-
-	fmt.Println(currentTime.Year(), currentTime.Month(), currentTime.Day())
+	brokenStr := "Hell# W#rld!"
+	replacer := strings.NewReplacer("#", "o")
+	fixedString := replacer.Replace(brokenStr)
+	fmt.Println(fixedString)
 }
