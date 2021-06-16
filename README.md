@@ -122,3 +122,24 @@ func generateRandomNumber(min int, max int) int {
 }
 
 ```
+
+### Formatting Strings
+
+```go
+
+fmt.Printf("%s %s!", "Hello", "World")
+fmt.Printf("%d", 5);
+
+str := fmt.Sprintf("%s %s!", "Hello", "World") // Returns string
+
+Verb 	Output
+
+%f 		Floating-point number
+%d 		Decimal integer
+%s 		String
+%t 		Boolean (true or false)
+%v 		Any value (chooses an appropriate format based on the supplied value’s type)
+%#v 	Any value, formatted as it would appear in Go program code
+%T 		Type of the supplied value (int, string, etc.)
+%% 		A literal percent sign
+```
