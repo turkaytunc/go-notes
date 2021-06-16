@@ -143,3 +143,14 @@ Verb 	Output
 %T 		Type of the supplied value (int, string, etc.)
 %% 		A literal percent sign
 ```
+
+### Return Error and Named Return Values
+
+```go
+func squareRoot(number float64) (result float64, err error) {
+	if number < 0 {
+		return 0, fmt.Errorf("Can't get square root of negative number")
+	}
+	return math.Sqrt(number), nil
+}
+```
