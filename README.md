@@ -202,3 +202,29 @@ if scanner.Err() != nil {
 	log.Fatal(scanner.Err())
 }
 ```
+
+### Slice an array
+
+```go
+
+primes := [5]int{2, 3, 5, 7, 11}
+
+sliced := primes[1:3] // first parameter is inclusive, second is exclusive
+
+fmt.Println(sliced) // [3, 5]
+
+```
+
+### Read Terminal Arguments
+
+```go
+arguments := os.Args[1:]
+```
+
+### Variadic Functions
+
+```go
+func myFunc(param1 string, param2 ...int){
+
+}
+```
