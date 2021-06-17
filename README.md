@@ -158,12 +158,12 @@ func squareRoot(number float64) (result float64, err error) {
 ### Pointers
 
 ```go
-	var myInt int
-	var myIntPointer *int
-	myInt = 42
-	myIntPointer = &myInt
+var myInt int
+var myIntPointer *int
+myInt = 42
+myIntPointer = &myInt
 
-	fmt.Print(*myIntPointer)
+fmt.Print(*myIntPointer)
 ```
 
 ### Go Doc
@@ -185,20 +185,20 @@ primes := [5]int{2, 3, 5, 7, 11}
 ### Read Data From File
 
 ```go
-	file, err := os.Open("data.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+file, err := os.Open("data.txt")
+if err != nil {
+	log.Fatal(err)
+}
 
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		fmt.Printf("%v\n", scanner.Text())
-	}
-	err = file.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	if scanner.Err() != nil {
-		log.Fatal(scanner.Err())
-	}
+scanner := bufio.NewScanner(file)
+for scanner.Scan() {
+	fmt.Printf("%v\n", scanner.Text())
+}
+err = file.Close()
+if err != nil {
+	log.Fatal(err)
+}
+if scanner.Err() != nil {
+	log.Fatal(scanner.Err())
+}
 ```

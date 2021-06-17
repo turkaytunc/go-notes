@@ -1,28 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
+
+	readfromfile "github.com/turkaytunc/go-notes/read-from-file"
 )
 
 func main() {
 
-	file, err := os.Open("data.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+	arr := readfromfile.New("data.txt")
 
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		fmt.Printf("%v\n", scanner.Text())
-	}
-	err = file.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	if scanner.Err() != nil {
-		log.Fatal(scanner.Err())
+	for _, val := range arr {
+		fmt.Println(val)
 	}
 }
