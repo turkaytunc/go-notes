@@ -228,3 +228,22 @@ func myFunc(param1 string, param2 ...int){
 
 }
 ```
+
+### Passing Slice To Variadic Function
+
+```go
+func Sum(nums ...int) (result int) {
+	var sum int
+	for _, val := range nums {
+		sum += val
+	}
+	return sum
+}
+
+arr1 := make([]int, 10)
+for i, _ := range arr1 {
+	arr1 = append(arr1, i+1)
+}
+sum := varsum.Sum(arr1...)
+fmt.Println(sum)
+```
