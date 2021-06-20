@@ -13,12 +13,10 @@ func main() {
 	for _, val := range arr {
 		fmt.Println(val)
 	}
-
 	arr1 := make([]int, 10)
-	for i, _ := range arr1 {
+	for i := range arr1 {
 		arr1 = append(arr1, i+1)
 	}
 	sum := varsum.Sum(arr1...)
 	fmt.Println(sum)
-
 }
