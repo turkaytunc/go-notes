@@ -19,4 +19,5 @@ func main() {
 	}
 	sum := varsum.Sum(arr1...)
 	fmt.Println(sum)
+
 }

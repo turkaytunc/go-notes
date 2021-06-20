@@ -247,3 +247,40 @@ for i, _ := range arr1 {
 sum := varsum.Sum(arr1...)
 fmt.Println(sum)
 ```
+
+### Creating Maps
+
+```go
+freq := make(map[string]int)
+
+strArr := strings.Split(arr, "")
+
+for v := range strArr {
+	_, ok := freq[strArr[v]]
+	if ok {
+		freq[strArr[v]]++
+		continue
+	}
+	freq[strArr[v]] = 1
+}
+
+freq["h"]
+// values can be removed using delete function.   delete(mapName, value)  delete(freq, "h")
+
+```
+
+### Sorting
+
+```go
+arr2 := []string{"hello", "bottle", "car", "table"}
+
+for _, v := range arr2 {
+	fmt.Println(v)
+}
+
+sort.Strings(arr2)
+
+for _, v := range arr2 {
+	fmt.Println(v)
+}
+```
