@@ -299,3 +299,24 @@ user1 := user{"mike", 15, false}
 // or this
 user2 := user{name: "John", age: 74, isAdmin: false}
 ```
+
+### Receiver and Defined Types
+
+```go
+package calc
+
+type Number int // Defined Type
+
+func (n Number) Add(otherNumber int) int {
+	return int(n) + otherNumber
+}
+func (n Number) Subtract(otherNumber int) int {
+	return int(n) - otherNumber
+}
+
+//
+
+num := calc.Number(5)
+fmt.Println(num.Add(2)) // prints out 7
+
+```
