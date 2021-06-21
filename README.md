@@ -284,3 +284,18 @@ for _, v := range arr2 {
 	fmt.Println(v)
 }
 ```
+
+### Structs
+
+```go
+type user struct {
+	name string
+	age int
+	isAdmin bool
+}
+
+// can be used like this
+user1 := user{"mike", 15, false}
+// or this
+user2 := user{name: "John", age: 74, isAdmin: false}
+```
