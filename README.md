@@ -362,4 +362,13 @@ for i := range area {
 	fmt.Println(area[i].CalculateArea())
 }
 
+// if methods have pointer receivers then we must use like this
+
+var area [2]inter.AreaCalculator
+area[0] = &inter.Square{Height: 5}
+area[1] = &inter.Circle{R: 2}
+
+for i := range area {
+	fmt.Println(area[i].CalculateArea())
+}
 ```
