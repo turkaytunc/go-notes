@@ -376,8 +376,9 @@ for i := range area {
 func (c *Circle) CalculatePerimeter() Double {
 	return Double(c.R * 2 * math.Pi)
 }
-// then we have to convert it to use method above
-
-converted := area[1].(*inter.Circle)
-fmt.Println(converted.CalculatePerimeter())
+// then we have to convert "type assertion" it to use method above
+converted, ok := area[1].(*inter.Circle) // return value and ok bool
+if ok {
+	fmt.Println(converted.CalculatePerimeter())
+}
 ```
