@@ -371,4 +371,13 @@ area[1] = &inter.Circle{R: 2}
 for i := range area {
 	fmt.Println(area[i].CalculateArea())
 }
+
+// if we add another method that not satisfy interface
+func (c *Circle) CalculatePerimeter() Double {
+	return Double(c.R * 2 * math.Pi)
+}
+// then we have to convert it to use method above
+
+converted := area[1].(*inter.Circle)
+fmt.Println(converted.CalculatePerimeter())
 ```

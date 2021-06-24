@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/turkaytunc/go-notes/inter"
 	readfromfile "github.com/turkaytunc/go-notes/read-from-file"
 	varsum "github.com/turkaytunc/go-notes/var-sum"
 )
@@ -20,4 +21,14 @@ func main() {
 	sum := varsum.Sum(arr1...)
 	fmt.Println(sum)
 
+	var area [2]inter.AreaCalculator
+	area[0] = &inter.Square{Height: 5}
+	area[1] = &inter.Circle{R: 3}
+
+	for i := range area {
+		fmt.Println(area[i].CalculateArea())
+	}
+
+	converted := area[1].(*inter.Circle)
+	fmt.Println(converted.CalculatePerimeter())
 }

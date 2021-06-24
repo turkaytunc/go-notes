@@ -17,6 +17,9 @@ type Circle struct {
 func (c *Circle) CalculateArea() Double {
 	return Double(math.Pow(c.R, 2) * math.Pi)
 }
+func (c *Circle) CalculatePerimeter() Double {
+	return Double(c.R * 2 * math.Pi)
+}
 
 type Square struct {
 	Height float64
