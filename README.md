@@ -320,3 +320,46 @@ num := calc.Number(5)
 fmt.Println(num.Add(2)) // prints out 7
 
 ```
+
+### interface
+
+```go
+package inter
+
+import (
+	"math"
+)
+
+type Double float64
+
+type AreaCalculator interface {
+	CalculateArea() Double
+}
+
+type Circle struct {
+	R float64
+}
+
+func (c Circle) CalculateArea() Double {
+	return Double(math.Pow(c.R, 2) * math.Pi)
+}
+
+type Square struct {
+	Height float64
+}
+
+func (s Square) CalculateArea() Double {
+	return Double(math.Pow(s.Height, 2))
+}
+
+// in main
+
+var area [2]inter.AreaCalculator
+area[0] = inter.Square{Height: 5}
+area[1] = inter.Circle{R: 2}
+
+for i := range area {
+	fmt.Println(area[i].CalculateArea())
+}
+
+```
