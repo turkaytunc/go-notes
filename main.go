@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/turkaytunc/go-notes/crawl"
 )
 
 func main() {
@@ -31,28 +32,15 @@ func main() {
 	// 	fmt.Println(converted.CalculatePerimeter())
 	// }
 
-	// res, err := crawl.New()
+	c := make(chan string)
+	go crawl.SiteBodyLength("https://google.com/", c)
+	go crawl.SiteBodyLength("https://amazon.com/", c)
+	go crawl.SiteBodyLength("https://aws.com/", c)
+	go crawl.SiteBodyLength("https://amazon.com/", c)
+	go crawl.SiteBodyLength("https://google.com/", c)
 
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// fmt.Println(res)
-
-	go printA()
-	go printB()
-
-	time.Sleep(time.Second / 10)
-}
-
-func printA() {
-	for i := 0; i < 50; i++ {
-		go fmt.Print("a")
+	for v := range c {
+		fmt.Println(len(v))
 	}
-}
 
-func printB() {
-	for i := 0; i < 50; i++ {
-		go fmt.Print("b")
-	}
 }

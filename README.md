@@ -405,3 +405,34 @@ go printB()
 
 time.Sleep(time.Second / 10)
 ```
+
+### channels
+
+```go
+func SiteBodyLength(url string, c chan string) {
+	res, httpErr := http.Get(url)
+	if httpErr != nil {
+		log.Fatal(httpErr)
+	}
+	defer res.Body.Close()
+
+	body, parseErr := ioutil.ReadAll(res.Body)
+	if parseErr != nil {
+		log.Fatal(parseErr)
+	}
+	c <- string(body)
+}
+
+//
+
+c := make(chan string)
+go crawl.SiteBodyLength("https://google.com/", c)
+go crawl.SiteBodyLength("https://amazon.com/", c)
+go crawl.SiteBodyLength("https://aws.com/", c)
+go crawl.SiteBodyLength("https://amazon.com/", c)
+go crawl.SiteBodyLength("https://google.com/", c)
+
+for v := range c {
+	fmt.Println(len(v))
+}
+```

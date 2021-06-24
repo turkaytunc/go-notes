@@ -2,20 +2,20 @@ package crawl
 
 import (
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
-func New() (string, error) {
-	res, httpErr := http.Get("https://google.com")
+func SiteBodyLength(url string, c chan string) {
+	res, httpErr := http.Get(url)
 	if httpErr != nil {
-		return "", httpErr
+		log.Fatal(httpErr)
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return "", err
+	body, parseErr := ioutil.ReadAll(res.Body)
+	if parseErr != nil {
+		log.Fatal(parseErr)
 	}
-
-	return string(body), nil
+	c <- string(body)
 }
