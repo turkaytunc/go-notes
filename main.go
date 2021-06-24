@@ -29,6 +29,8 @@ func main() {
 		fmt.Println(area[i].CalculateArea())
 	}
 
-	converted := area[1].(*inter.Circle)
-	fmt.Println(converted.CalculatePerimeter())
+	converted, ok := area[1].(*inter.Circle)
+	if ok {
+		fmt.Println(converted.CalculatePerimeter())
+	}
 }
