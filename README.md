@@ -382,3 +382,26 @@ if ok {
 	fmt.Println(converted.CalculatePerimeter())
 }
 ```
+
+### Goroutines
+
+```go
+func printA() {
+for i := 0; i < 50; i++ {
+	go fmt.Print("a")
+}
+}
+
+func printB() {
+for i := 0; i < 50; i++ {
+	go fmt.Print("b")
+}
+}
+
+//
+
+go printA()
+go printB()
+
+time.Sleep(time.Second / 10)
+```
