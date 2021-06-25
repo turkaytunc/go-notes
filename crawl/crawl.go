@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func SiteBodyLength(url string, c chan string) {
+func SiteBodyLength(url string, c chan int) {
 	res, httpErr := http.Get(url)
 	if httpErr != nil {
 		log.Fatal(httpErr)
@@ -17,5 +17,5 @@ func SiteBodyLength(url string, c chan string) {
 	if parseErr != nil {
 		log.Fatal(parseErr)
 	}
-	c <- string(body)
+	c <- len(body)
 }

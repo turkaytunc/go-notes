@@ -32,7 +32,7 @@ func main() {
 	// 	fmt.Println(converted.CalculatePerimeter())
 	// }
 
-	c := make(chan string)
+	c := make(chan int)
 	go crawl.SiteBodyLength("https://google.com/", c)
 	go crawl.SiteBodyLength("https://amazon.com/", c)
 	go crawl.SiteBodyLength("https://aws.com/", c)
@@ -40,7 +40,7 @@ func main() {
 	go crawl.SiteBodyLength("https://google.com/", c)
 
 	for v := range c {
-		fmt.Println(len(v))
+		fmt.Println(v)
 	}
 
 }
