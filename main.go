@@ -1,11 +1,5 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/turkaytunc/go-notes/crawl"
-)
-
 func main() {
 
 	// arr := readfromfile.New("data.txt")
@@ -32,15 +26,15 @@ func main() {
 	// 	fmt.Println(converted.CalculatePerimeter())
 	// }
 
-	c := make(chan int)
-	go crawl.SiteBodyLength("https://google.com/", c)
-	go crawl.SiteBodyLength("https://amazon.com/", c)
-	go crawl.SiteBodyLength("https://aws.com/", c)
-	go crawl.SiteBodyLength("https://amazon.com/", c)
-	go crawl.SiteBodyLength("https://google.com/", c)
+	// c := make(chan int)
+	// go crawl.SiteBodyLength("https://google.com/", c)
+	// go crawl.SiteBodyLength("https://amazon.com/", c)
+	// go crawl.SiteBodyLength("https://aws.com/", c)
+	// go crawl.SiteBodyLength("https://amazon.com/", c)
+	// go crawl.SiteBodyLength("https://google.com/", c)
 
-	for v := range c {
-		fmt.Println(v)
-	}
+	// for v := range c {
+	// 	fmt.Println(v)
+	// }
 
 }

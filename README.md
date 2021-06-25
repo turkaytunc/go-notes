@@ -8,6 +8,8 @@
 
 reflect.TypeOf(42);
 reflect.TypeOf(3.14159)
+
+fmt.Printf("%v", reflect.TypeOf(5).Kind() == reflect.Int) // true
 ```
 
 ### Change between
