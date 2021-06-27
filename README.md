@@ -438,3 +438,21 @@ for v := range c {
 	fmt.Println(len(v))
 }
 ```
+
+### Compose interface
+
+```go
+
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+type Closer interface {
+    Close() error
+}
+
+type ReadCloser interface {
+    Reader
+    Closer
+}
+```
