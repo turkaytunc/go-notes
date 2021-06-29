@@ -1,7 +1,5 @@
 # Headfirst Go Book Notes
 
-## Index
-
 ### Type of
 
 ```go
