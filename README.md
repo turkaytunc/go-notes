@@ -203,6 +203,32 @@ if scanner.Err() != nil {
 }
 ```
 
+### Read From Stdin
+
+```go
+scanner := bufio.NewScanner(os.Stdin)
+fmt.Println("This is a sentence")
+for scanner.Scan() {
+	fmt.Printf("%v\n", scanner.Text())
+}
+```
+
+### Read json file
+
+```go
+aMap, _ := json.Marshal(map[string]int{"one": 1, "two": 2})
+	fmt.Println(string(aMap))
+
+	recoveredMap := make(map[string]int)
+	err := json.Unmarshal(aMap, &recoveredMap)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	fmt.Println(recoveredMap)
+```
+
 ### Slice an array
 
 ```go
